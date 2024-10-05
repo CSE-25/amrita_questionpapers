@@ -1,9 +1,10 @@
 package cmd
 
 import (
-    "fmt"
-    "os"
-    "github.com/spf13/cobra"
+	"fmt"
+	"os"
+	"github.com/anaskhan96/soup"
+	"github.com/spf13/cobra"
 )
 
 var rootCmd = &cobra.Command{
@@ -11,7 +12,7 @@ var rootCmd = &cobra.Command{
     Short: "Amrita PYQ CLI",
     Long:  `A CLI application to access Amrita Repository for previous year question papers.`,
     Run: func(cmd *cobra.Command, args []string) {
-		fmt.Print(logo_ascii)
+		fmt.Print(LOGO_ASCII)
         start()
     },
 }
@@ -26,39 +27,47 @@ func Execute() {
 
 // start function - equivalent to start() in Python
 func start() {
-    fmt.Println("Available Courses:\n")
-    fmt.Println("1. B.Tech")
-    fmt.Println("2. BA Communication")
-    fmt.Println("3. MA Communication")
-    fmt.Println("4. Integrated MSc & MA")
-    fmt.Println("5. MCA")
-    fmt.Println("6. MSW")
-    fmt.Println("7. M.Tech")
-    fmt.Println("8. Exit")
+    fmt.Println("Fetching Courses...")
+    res := fetchHTML(COURSE_LIST_URL)
+    fmt.Println("Available Courses:")
 
-    var choice int
-    fmt.Printf("\nEnter your choice: ")
-    fmt.Scanln(&choice)
+    // Check if the response is empty
+    if res == "" {
+        fmt.Println("Failed to fetch the HTML content. Exiting.")
+        return
+    }
 
-    switch choice {
-    case 1:
-        semTable(course_url+code_btech)
-    case 2:
-        semTable(course_url+code_ba_communication)
-    case 3:
-        semTable(course_url+code_ma_communication)
-    case 4:
-        semTable(course_url+code_integrated_msc_ma)
-    case 5:
-        semTable(course_url+code_mca)
-    case 6:
-        semTable(course_url+code_msw)
-    case 7:
-        semTable(course_url+code_mtech)
-    case 8:
-        fmt.Println("Goodbye!")
-        os.Exit(0)
-    default:
-        fmt.Println("Invalid option!")
+    // Parse the HTML content using soup
+    doc := soup.HTMLParse(res)
+    div := doc.Find("div", "id", "aspect_artifactbrowser_CommunityViewer_div_community-view")
+
+    subs := div.FindAll("div","class","artifact-title")
+
+    for i, item := range subs {
+        sub := item.Find("span")
+        if sub.Error == nil {
+            fmt.Printf("%d.\t%s\n", i+1, sub.Text())
+        }
+    }
+
+    // Option to quit.
+    fmt.Printf("%d.\tQuit\n", len(subs)+1)
+
+    for {
+        var ch int
+        fmt.Printf("\nEnter your choice: ")
+        fmt.Scanln(&ch)
+
+        if ch > 0 && ch <= len(subs) {
+            a := subs[ch-1].Find("a")
+            path := a.Attrs()["href"]
+            url := BASE_URL + path
+            semTable(url)
+        } else if ch == len(subs)+1 {
+            fmt.Println("Goodbye!")
+            os.Exit(0)
+        } else {
+            fmt.Println("Please enter a valid input!")
+        }
     }
 }

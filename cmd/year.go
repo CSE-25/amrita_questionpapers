@@ -26,8 +26,7 @@ func year(url string) {
     li := ul.Find("li")
     hyper := li.Find("a").Attrs()["href"]
 
-    url = base_url
-    url += hyper
+    url = BASE_URL + hyper
     page := fetchHTML(url)
     
     doc = soup.HTMLParse(page)
@@ -57,7 +56,7 @@ func year(url string) {
         if ch > 0 && ch <= len(subdiv) {
             title := subdiv[ch-1].FindAll("div")
             link := title[0].Find("a").Attrs()["href"]
-            url = base_url + link
+            url = BASE_URL + link
             break
         } else if ch == len(subdiv)+1 {
             semChoose(stack.Pop())

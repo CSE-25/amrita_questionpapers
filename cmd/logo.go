@@ -1,6 +1,6 @@
 package cmd
 
-const logo_ascii string = `
+const LOGO_ASCII string = `
            __  __ _____  _____ _______         _______     ______  
      /\   |  \/  |  __ \|_   _|__   __|/\     |  __ \ \   / / __ \ 
     /  \  | \  / | |__) | | |    | |  /  \    | |__) \ \_/ / |  | |

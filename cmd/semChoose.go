@@ -8,16 +8,16 @@ import (
 func semChoose(url string) {
 	fmt.Println("Fetching assesments...")
 	params_url := url
-    resp := fetchHTML(url)  // Fetch the HTML content
+    res := fetchHTML(url)  // Fetch the HTML content
 
 	// Check if the response is empty
-    if resp == "" {
+    if res == "" {
         fmt.Println("Failed to fetch the HTML content. Exiting.")
         return
     }
     
     // Parse the HTML content using soup
-    doc := soup.HTMLParse(resp)
+    doc := soup.HTMLParse(res)
     div := doc.Find("div", "id", "aspect_artifactbrowser_CommunityViewer_div_community-view")
 
 	if div.Error != nil {
@@ -56,7 +56,7 @@ func semChoose(url string) {
         fmt.Scanln(&ch)
 
         if ch > 0 && ch <= len(li) {
-            url = base_url + li[ch-1].Find("a").Attrs()["href"]
+            url = BASE_URL + li[ch-1].Find("a").Attrs()["href"]
             break
         } else if ch == len(li)+1 {
             semTable(stack.Pop())

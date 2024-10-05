@@ -74,7 +74,3 @@ func NewStack() *Stack {
 }
 
 var stack = NewStack()
-
-
-
-
