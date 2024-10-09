@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 	"os"
-	"github.com/anaskhan96/soup"
+
 	"github.com/spf13/cobra"
 )
 
@@ -28,42 +28,33 @@ func Execute() {
 // start function - equivalent to start() in Python
 func start() {
     fmt.Println("Fetching Courses...")
-    res := fetchHTML(COURSE_LIST_URL)
-    fmt.Println("Available Courses:")
 
-    // Check if the response is empty
-    if res == "" {
-        fmt.Println("Failed to fetch the HTML content. Exiting.")
+    subjects, err := getCoursesReq(COURSE_LIST_URL)
+
+    if err != nil {
+        fmt.Errorf(err.Error())
         return
     }
 
-    // Parse the HTML content using soup
-    doc := soup.HTMLParse(res)
-    div := doc.Find("div", "id", "aspect_artifactbrowser_CommunityViewer_div_community-view")
-
-    subs := div.FindAll("div","class","artifact-title")
-
-    for i, item := range subs {
-        sub := item.Find("span")
-        if sub.Error == nil {
-            fmt.Printf("%d.\t%s\n", i+1, sub.Text())
-        }
+    fmt.Println("Available Courses:")
+    
+    for i, subject := range subjects {
+        fmt.Printf("%d.\t%s\n", i+1, subject.name)
     }
 
     // Option to quit.
-    fmt.Printf("%d.\tQuit\n", len(subs)+1)
+    fmt.Printf("%d.\tQuit\n", len(subjects)+1)
 
     for {
         var ch int
         fmt.Printf("\nEnter your choice: ")
         fmt.Scanln(&ch)
 
-        if ch > 0 && ch <= len(subs) {
-            a := subs[ch-1].Find("a")
-            path := a.Attrs()["href"]
+        if ch > 0 && ch <= len(subjects) {
+            path := subjects[ch-1].path
             url := BASE_URL + path
             semTable(url)
-        } else if ch == len(subs)+1 {
+        } else if ch == len(subjects)+1 {
             fmt.Println("Goodbye!")
             os.Exit(0)
         } else {

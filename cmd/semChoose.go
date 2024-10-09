@@ -2,63 +2,37 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/anaskhan96/soup"
 )
 
 func semChoose(url string) {
 	fmt.Println("Fetching assesments...")
 	params_url := url
-    res := fetchHTML(url)  // Fetch the HTML content
-
-	// Check if the response is empty
-    if res == "" {
-        fmt.Println("Failed to fetch the HTML content. Exiting.")
-        return
-    }
     
-    // Parse the HTML content using soup
-    doc := soup.HTMLParse(res)
-    div := doc.Find("div", "id", "aspect_artifactbrowser_CommunityViewer_div_community-view")
+    assesments, err := semChooseReq(url)
 
-	if div.Error != nil {
-        fmt.Println("No assesments found on the page.")
+    if err != nil {
+        fmt.Errorf(err.Error())
         return
     }
-
-	ul := div.FindAll("ul")
-	li := ul[0].FindAll("li")
-
-	if len(ul)>1 {
-		li = ul[1].FindAll("li")
-	} else {
-		li = ul[0].FindAll("li")
-	}
 
 	// Display the found items
     fmt.Printf("No\tSemesters\n")
-    for i, link := range li {
-        a := link.Find("a")
-        if a.Error == nil {
-            span := a.Find("span")
-            if span.Error == nil {
-                fmt.Printf("%d\t%s\n", i+1, span.Text())  // Extract the text from the span element
-            }
-        }
+    for i, assesment := range assesments {
+        fmt.Printf("%d\t%s\n", i+1, assesment.name)  // Extract the text from the span element    
     }
 
 	// Option to add "Back"
-    fmt.Printf("%d\tBack\n", len(li)+1)
-
+    fmt.Printf("%d\tBack\n", len(assesments)+1)
 
 	for {
         var ch int
         fmt.Print("\nEnter your assesment: ")
         fmt.Scanln(&ch)
 
-        if ch > 0 && ch <= len(li) {
-            url = BASE_URL + li[ch-1].Find("a").Attrs()["href"]
+        if ch > 0 && ch <= len(assesments) {
+            url = BASE_URL + assesments[ch-1].path
             break
-        } else if ch == len(li)+1 {
+        } else if ch == len(assesments)+1 {
             semTable(stack.Pop())
         } else {
             fmt.Println("Please enter a valid input!")
