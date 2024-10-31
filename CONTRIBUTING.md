@@ -29,18 +29,29 @@ If you encounter any issues or have suggestions for improvements, please [open a
     git add .
     git commit -m "Description of the changes"
     ```
-
-### Submitting a Pull Request
-
-1. Push your changes to your forked repository:
+4. Push your changes to your forked repository:
     ```bash
     git push origin my-feature-branch
     ```
-2. Create a pull request from your branch to the `main` branch of the original repository. Provide a clear description of your changes and any related issues.
+    
+### Submitting a Pull Request
 
-### Code Review
+1. Once you push the changes to your repo, the `Contribute` Button will appear in Github.
+2. Click that button and you will be taken to the PR page. Describe what changes you have made and submit the PR.
+    <ol type="a">  
+        <li>Mention the issue link in the PR description.</li>  
+        <li>If the PR is still a work in progress, start the title with "[WIP]".</li>  
+        <li>If the PR is complete, start the title with "[COMPLETED]".</li>  
+        <li>Add "@Abhinav-ark" or "@Ashrockzzz2003" as reviewers.</li>  
+    </ol> 
+3. Wait for the PR to be reviewed by the maintainers.
+4. Make the required changes if the maintainers ask for them.
+5. Once the maintainers approve the PR, the PR will be merged.
 
-Your pull request will be reviewed by the maintainers. Please be responsive to feedback and make requested changes promptly.
+### Note
+
+If you make the contributions in October, you will be eligible for the [Hacktoberfest](https://hacktoberfest.com) event. Make sure you're registered on the [Hacktoberfest](https://hacktoberfest.com) website to be eligible for the badges from [Hacktoberfest](https://hacktoberfest.com) by contributing to this repo.
+
 
 ### Code of Conduct
 
