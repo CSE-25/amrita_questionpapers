@@ -21,7 +21,7 @@ If you encounter any issues or have suggestions for improvements, please [open a
 
 1. Create a new branch for your changes:
     ```bash
-    git checkout -b my-feature-branch
+    git checkout -b <branch_name>
     ```
 2. Make your changes in the new branch.
 3. Commit your changes with a meaningful commit message:
@@ -31,7 +31,7 @@ If you encounter any issues or have suggestions for improvements, please [open a
     ```
 4. Push your changes to your forked repository:
     ```bash
-    git push origin my-feature-branch
+    git push origin <branch_name>
     ```
     
 ### Submitting a Pull Request
