@@ -52,10 +52,11 @@ If you encounter any issues or have suggestions for improvements, please [open a
 
 If you make the contributions in October, you will be eligible for the [Hacktoberfest](https://hacktoberfest.com) event. Make sure you're registered on the [Hacktoberfest](https://hacktoberfest.com) website to be eligible for the badges from [Hacktoberfest](https://hacktoberfest.com) by contributing to this repo.
 
-
+<!-- 
 ### Code of Conduct
 
-This project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
+This project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. 
+-->
 
 ### Contact
 
