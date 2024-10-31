@@ -1,4 +1,4 @@
-# amrita_pyq
+# amrita_questionpapers
 
 ## Contributing
 
