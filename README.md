@@ -17,14 +17,17 @@ Ensure the following requirements are met before using the application:
 
 ## **Usage Instructions**
 
-### Step 1: Clone the Repository
+### Step 1: Connect to Amrita WiFi or VPN
+Before using the tool, ensure that you are connected to **Amrita WiFi** or using a **VPN** to access the network. This is mandatory for fetching the previous year question papers.
+
+### Step 2: Clone the Repository
 ```bash
 git clone https://github.com/CSE-25/amrita_pyq
 ```
 
 ---
 
-### Step 2: Run the Application
+### Step 3: Run the Application
 1. Open the `main.go` file in your preferred code editor (eg:VS Code).  
 2. Execute the application:
    ```bash
@@ -37,7 +40,7 @@ git clone https://github.com/CSE-25/amrita_pyq
 
 ---
 
-### Step 3: Select an Option
+### Step 4: Select an Option
 1. Use the menu to choose an option.  
 2. The tool will process your request and fetch the desired question paper.
 
@@ -47,7 +50,7 @@ git clone https://github.com/CSE-25/amrita_pyq
 ---
 
 
-### Step 4: View the Question Paper
+### Step 5: View the Question Paper
 1. The question paper will automatically open as a **PDF** in your default web browser.
 
 ### Output
@@ -56,7 +59,7 @@ git clone https://github.com/CSE-25/amrita_pyq
 
 ---
    
-### Step 5: Continue or Exit
+### Step 6: Continue or Exit
 1. After the PDF is displayed, you will have the option to:
    - **Continue**: Press `1` to go back to the main menu.  
    - **Exit**: Press `0` to close the application.
@@ -65,10 +68,10 @@ git clone https://github.com/CSE-25/amrita_pyq
 ![image](https://github.com/user-attachments/assets/cc4cdd7e-f1f4-4926-a00e-00adc098cb66)
 
 ---
+
 # **Local Development Environment Setup**
 
 ### **Installing Golang**
-
 1. **Download Golang**  
    Visit the official [Golang Downloads Page](https://golang.org/dl/) and select the installer appropriate for your operating system:
    - **Windows**: `.msi` installer  
