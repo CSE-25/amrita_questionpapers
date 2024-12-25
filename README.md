@@ -3,17 +3,17 @@
 ![Last Updated](https://img.shields.io/badge/Last%20Updated-December-00ADD8?style=flat&logoColor=white&labelColor=5E5D5D&color=D0A93E)
 
 
-# **Amrita PYQ CLI Tool Documentation**
+# Amrita PYQ CLI Tool Documentation
 <p align="center">
   <img src="https://github.com/user-attachments/assets/44822d21-0e1d-4b3e-baa3-3450b5cc14fc" alt="amritalogo" width="550" height="200">
 </p>
 
-## **Overview**
+## Overview
 The Amrita PYQ CLI Tool is a command-line interface application that simplifies accessing previous year question papers (PYQs) by directly fetching and displaying them in your default browser.
 
 ---
 
-## **Prerequisites**
+## Prerequisites
 Ensure the following requirements are met before using the application:
 
 - **Network**: You must be connected to the **Amrita WiFi** or use a **VPN** to access the network.  
@@ -23,7 +23,7 @@ Ensure the following requirements are met before using the application:
 
 ---
 
-## **Usage Instructions**
+## Usage Instructions
 
 ### Step 1: Connect to Amrita WiFi or VPN
 Before using the tool, ensure that you are connected to **Amrita WiFi** or using a **VPN** to access the network. This is mandatory for fetching the previous year question papers.
@@ -79,22 +79,22 @@ The File opened in PDF format in your default browser(in this case, Google Chrom
 
 ---
 
-# **Local Development Environment Setup**
+# Local Development Environment Setup
 <p align="center">
   <img src="https://github.com/user-attachments/assets/7c2a4198-cfd9-4451-89a0-44637136e1f4" alt="golang" width="300" height="200">
 </p>
 
-## **Installing Golang**
-1. **Download Golang**  
+## Installing Golang
+1. Download Golang
    Visit the official [Golang Downloads Page](https://golang.org/dl/) and select the installer appropriate for your operating system:
-   - **Windows**: `.msi` installer  
-   - **macOS**: `.pkg` installer  
-   - **Linux**: `.tar.gz` archive  
+   - Windows: `.msi` installer  
+   - macOS: `.pkg` installer  
+   - Linux: `.tar.gz` archive  
 
-2. **Install Golang**
-   - **Windows/macOS**:  
+2. Install Golang
+   - Windows/macOS:  
      Run the installer and follow the on-screen instructions. This will automatically configure Golang and set environment variables.  
-   - **Linux**:  
+   - Linux:  
      Extract the archive and move the files to `/usr/local`:  
      ```bash
      sudo tar -C /usr/local -xzf go<version>.linux-amd64.tar.gz
@@ -108,7 +108,7 @@ The File opened in PDF format in your default browser(in this case, Google Chrom
      source ~/.bashrc
      ```
 
-3. **Verify Installation**  
+3. Verify Installation
    Open a terminal and run:  
    ```bash
    go version
