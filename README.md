@@ -1,4 +1,12 @@
+![Static Badge](https://img.shields.io/badge/ampyq-darkred?logoColor=white)
+![Go Badge](https://img.shields.io/badge/Go-00ADD8?logo=go&logoColor=white)
+![Last Updated](https://img.shields.io/badge/Last%20Updated-December-00ADD8?style=flat&logoColor=white&labelColor=5E5D5D&color=D0A93E)
+
+
 # **Amrita PYQ CLI Tool Documentation**
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/44822d21-0e1d-4b3e-baa3-3450b5cc14fc" alt="amritalogo" width="550" height="200">
+</p>
 
 ## **Overview**
 The Amrita PYQ CLI Tool is a command-line interface application that simplifies accessing previous year question papers (PYQs) by directly fetching and displaying them in your default browser.
@@ -72,8 +80,11 @@ The File opened in PDF format in your default browser(in this case, Google Chrom
 ---
 
 # **Local Development Environment Setup**
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7c2a4198-cfd9-4451-89a0-44637136e1f4" alt="golang" width="300" height="200">
+</p>
 
-### **Installing Golang**
+## **Installing Golang**
 1. **Download Golang**  
    Visit the official [Golang Downloads Page](https://golang.org/dl/) and select the installer appropriate for your operating system:
    - **Windows**: `.msi` installer  
@@ -106,3 +117,10 @@ The File opened in PDF format in your default browser(in this case, Google Chrom
 
 > **Note**  
 > If you encounter any issues related to `GOPATH`, please refer to the [GOPATH Troubleshooting Guide](https://go.dev/wiki/SettingGOPATH#windows) for detailed instructions.
+
+---
+## Developers
+
+- [Abhinav Ramakrishnan](https://github.com/Abhinav-ark)
+- [Ashwin Narayanan S](https://ashrockzzz2003.github.io/portfolio)
+- [Naik Mubashir](https://github.com/naikmubashir)
