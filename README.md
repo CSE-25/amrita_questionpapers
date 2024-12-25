@@ -57,7 +57,7 @@ git clone https://github.com/CSE-25/amrita_pyq
 ![image](https://github.com/user-attachments/assets/d926aad6-2adc-41ce-a1b4-c287f1ccab1d)
 ![image](https://github.com/user-attachments/assets/5f3df041-6a87-4be3-9f20-8cd121eac95c)
 
-The File opened in PDF format in your default browser(in my case, Google Chrome) 
+The File opened in PDF format in your default browser(in this case, Google Chrome) 
 
 ---
    
