@@ -3,9 +3,9 @@
 ![Last Updated](https://img.shields.io/badge/Last%20Updated-December-00ADD8?style=flat&logoColor=white&labelColor=5E5D5D&color=D0A93E)
 
 
-# Amrita PYQ CLI Tool Documentation
+# Amrita PYQ CLI Tool 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/44822d21-0e1d-4b3e-baa3-3450b5cc14fc" alt="amritalogo" width="550" height="200">
+  <img src="https://github.com/user-attachments/assets/44822d21-0e1d-4b3e-baa3-3450b5cc14fc" alt="amritalogo" width="450" height="175">
 </p>
 
 ## Overview
