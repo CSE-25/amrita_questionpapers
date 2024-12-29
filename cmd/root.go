@@ -36,7 +36,7 @@ func start() {
         return
     }
 
-    fmt.Println("Available Courses:")
+    fmt.Println(`Available Courses:`)
     
     for i, subject := range subjects {
         fmt.Printf("%d.\t%s\n", i+1, subject.name)
