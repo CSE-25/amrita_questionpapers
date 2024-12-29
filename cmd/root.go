@@ -25,7 +25,7 @@ func Execute() {
     }
 }
 
-// start function - equivalent to start() in Python
+// start lists the available courses and redirects to chosen course.
 func start() {
     fmt.Println("Fetching Courses...")
 
