@@ -15,7 +15,7 @@ func semChoose(url string) {
         return
     }
 
-	// Display the found items
+	// Display the found semesters.
     fmt.Printf("No\tSemesters\n")
     for i, assesment := range assesments {
         fmt.Printf("%d\t%s\n", i+1, assesment.name)  // Extract the text from the span element    
