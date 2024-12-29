@@ -1,10 +1,11 @@
 package cmd
 
 import (
-	"fmt"
-    "github.com/anaskhan96/soup"
-	"os/exec"
+    "fmt"
+    "os/exec"
     "runtime"
+    
+    "github.com/anaskhan96/soup"
 )
 
 // Fetches and parses HTML from the given URL.
