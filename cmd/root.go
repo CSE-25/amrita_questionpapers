@@ -32,7 +32,7 @@ func start() {
     subjects, err := getCoursesReq(COURSE_LIST_URL)
 
     if err != nil {
-        fmt.Errorf(err.Error())
+        fmt.Println("Error:", err)
         return
     }
 

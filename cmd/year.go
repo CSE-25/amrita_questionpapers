@@ -12,7 +12,7 @@ func year(url string) {
     files, err := yearReq(url)
     
     if err != nil {
-        fmt.Errorf(err.Error())
+        fmt.Println("Error:", err)
         return
     }
 

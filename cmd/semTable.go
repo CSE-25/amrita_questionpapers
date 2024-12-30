@@ -10,7 +10,7 @@ func semTable(url string) {
     semesters, err := semTableReq(url) 
 
     if err != nil {
-        fmt.Errorf(err.Error())
+        fmt.Println("Error:", err)
         return
     }
     

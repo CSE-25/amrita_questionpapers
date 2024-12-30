@@ -11,17 +11,17 @@ func semChoose(url string) {
     assesments, err := semChooseReq(url)
 
     if err != nil {
-        fmt.Errorf(err.Error())
+        fmt.Println("Error:", err)
         return
     }
 
 	// Display the found semesters.
     fmt.Printf("No\tSemesters\n")
     for i, assesment := range assesments {
-        fmt.Printf("%d\t%s\n", i+1, assesment.name)  // Extract the text from the span element    
+        fmt.Printf("%d\t%s\n", i+1, assesment.name)  // Extract the text from the span element.    
     }
 
-	// Option to add "Back"
+	// Option to add "Back".
     fmt.Printf("%d\tBack\n", len(assesments)+1)
 
 	for {
@@ -39,7 +39,7 @@ func semChoose(url string) {
         }
     }
 
-	// append to stack
+	// append to stack.
     stack.Push(params_url)
 
 	year(url)

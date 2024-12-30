@@ -5,14 +5,14 @@ import (
 	"github.com/anaskhan96/soup"
 )
 
-var htmlFetchErr error = errors.New("failed to fetch the HTML content") 
+var errHTMLFetch error = errors.New("failed to fetch the HTML content") 
 
 func getCoursesReq(url string) ([]resource, error) {
 
 	res, err := fetchHTML(url)
 
     if err != nil {
-        return nil, htmlFetchErr
+        return nil, errHTMLFetch
     }
 
     doc := soup.HTMLParse(res)
@@ -39,18 +39,18 @@ func semChooseReq(url string) ([]resource ,error) {
     res, err := fetchHTML(url)  
 
     if err != nil {
-        return nil, htmlFetchErr
+        return nil, errHTMLFetch
     }
     
     doc := soup.HTMLParse(res)
     div := doc.Find("div", "id", "aspect_artifactbrowser_CommunityViewer_div_community-view")
 
 	if div.Error != nil {
-        return nil, errors.New("No assesments found on the page.")
+        return nil, errors.New("no assesments found on the page")
     }
 
 	ul := div.FindAll("ul")
-	li := ul[0].FindAll("li")
+    var li []soup.Root
 
 	if len(ul)>1 {
 		li = ul[1].FindAll("li")
@@ -76,21 +76,21 @@ func semTableReq(url string) ([]resource, error) {
     res, err := fetchHTML(url)  
 
     if err != nil {
-        return nil, htmlFetchErr
+        return nil, errHTMLFetch
     }
     
     doc := soup.HTMLParse(res)
     div := doc.Find("div", "id", "aspect_artifactbrowser_CommunityViewer_div_community-view")
 
     if div.Error != nil {
-        return nil, errors.New("No semesters found on the page.")
+        return nil, errors.New("no semesters found on the page")
     }
 
     ul := div.Find("ul")
     li := ul.FindAll("li")
 
     if len(li) == 0 {
-        return nil, errors.New("No semesters found on the page.")
+        return nil, errors.New("no semesters found on the page")
     }
 
 	var semesters []resource
@@ -112,7 +112,7 @@ func yearReq(url string) ([]resource, error) {
     res, err := fetchHTML(url)
     
     if err != nil {
-        return nil, htmlFetchErr
+        return nil, errHTMLFetch
     }
 
     doc := soup.HTMLParse(res)
@@ -126,7 +126,7 @@ func yearReq(url string) ([]resource, error) {
     page,err := fetchHTML(url)
     
 	if err != nil {
-        return nil, htmlFetchErr
+        return nil, errHTMLFetch
     }
 
     doc = soup.HTMLParse(page)
