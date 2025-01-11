@@ -5,28 +5,28 @@ import (
 )
 
 func semTable(url string) {
-	fmt.Println("Fetching semesters...")
+	fmt.Println(fetchStatusStyle.Render("Fetching semesters..."))
 
 	semesters, err := semTableReq(url)
 
 	if err != nil {
-		fmt.Println("Error:", err)
+		fmt.Print(errorStyle.Render(fmt.Sprintf("Error: %v\n", err)))
 		return
 	}
 
-	fmt.Printf("No\tSemesters\n")
+	fmt.Print(titleStyle.Render("No\tSemesters\n"))
 	for i, semester := range semesters {
-		fmt.Printf("%d\t%s\n", i+1, semester.name)
+		fmt.Println(listInfo.Render(fmt.Sprintf("%d\t%s", i+1, semester.name)))
 	}
 
 	// Option to add "Back".
-	fmt.Printf("%d\tBack\n", len(semesters)+1)
+	fmt.Print(returnStyle.Render(fmt.Sprintf("%d\tBack", len(semesters)+1)))
 
 	stack.Push(url)
 
 	for {
 		var ch int
-		fmt.Print("\nEnter your semester: ")
+		fmt.Printf("\n%s",fetchStatusStyle.Render("Enter your semester: "))
 		fmt.Scanln(&ch)
 
 		if ch > 0 && ch <= len(semesters) {
@@ -37,7 +37,7 @@ func semTable(url string) {
 			start()
 			break
 		} else {
-			fmt.Println("Please enter a valid input!")
+			fmt.Println(errorStyle.Render("Please enter a valid input!"))
 		}
 	}
 

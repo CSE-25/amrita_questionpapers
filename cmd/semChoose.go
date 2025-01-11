@@ -5,28 +5,29 @@ import (
 )
 
 func semChoose(url string) {
-	fmt.Println("Fetching assesments...")
+	fmt.Println(fetchStatusStyle.Render("Fetching assesments..."))
 	params_url := url
 
 	assesments, err := semChooseReq(url)
 
 	if err != nil {
-		fmt.Println("Error:", err)
+		fmt.Println(errorStyle.Render(fmt.Sprintf("Error: %v\n", err)))
 		return
 	}
 
 	// Display the found semesters.
-	fmt.Printf("No\tSemesters\n")
+	fmt.Print(titleStyle.Render("No\tSemesters\n"))
 	for i, assesment := range assesments {
-		fmt.Printf("%d\t%s\n", i+1, assesment.name) // Extract the text from the span element.
+		fmt.Println(listInfo.Render(fmt.Sprintf("%d\t%s", i+1, assesment.name))) // Extract the text from the span element.
 	}
 
 	// Option to add "Back".
-	fmt.Printf("%d\tBack\n", len(assesments)+1)
+	fmt.Print(returnStyle.Render(fmt.Sprintf("%d\tBack\n", len(assesments)+1)))
+
 
 	for {
 		var ch int
-		fmt.Print("\nEnter your assesment: ")
+		fmt.Print(fetchStatusStyle.Render("Enter your assesment: "))
 		fmt.Scanln(&ch)
 
 		if ch > 0 && ch <= len(assesments) {
@@ -35,7 +36,7 @@ func semChoose(url string) {
 		} else if ch == len(assesments)+1 {
 			semTable(stack.Pop())
 		} else {
-			fmt.Println("Please enter a valid input!")
+			fmt.Println(errorStyle.Render("Please enter a valid input!"))
 		}
 	}
 

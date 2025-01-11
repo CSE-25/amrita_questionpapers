@@ -6,27 +6,27 @@ import (
 )
 
 func year(url string) {
-	fmt.Println("Fetching...")
+	fmt.Println(fetchStatusStyle.Render("Fetching..."))
 	year_url := url
 
 	files, err := yearReq(url)
 
 	if err != nil {
-		fmt.Println("Error:", err)
+		fmt.Print(errorStyle.Render(fmt.Sprintf("Error: %v\n", err)))
 		return
 	}
 
-	fmt.Printf("No\tFiles\n")
+	fmt.Print(titleStyle.Render("No\tFiles\n"))
 	for i, file := range files {
-		fmt.Printf("%d\t%s\n", i+1, file.name)
+		fmt.Println(listInfo.Render(fmt.Sprintf("%d\t%s", i+1, file.name)))
 	}
 
 	// Option to add "Back".
-	fmt.Printf("%d\tBack\n", len(files)+1)
+	fmt.Print(returnStyle.Render(fmt.Sprintf("%d\tBack\n", len(files)+1)))
 
 	for {
 		var ch int
-		fmt.Print("\nEnter your choice: ")
+		fmt.Print(fetchStatusStyle.Render("Enter your choice: "))
 		fmt.Scanln(&ch)
 
 		if ch > 0 && ch <= len(files) {
@@ -36,21 +36,21 @@ func year(url string) {
 		} else if ch == len(files)+1 {
 			semChoose(stack.Pop())
 		} else {
-			fmt.Println("Please enter a valid input!")
+			fmt.Println(errorStyle.Render("Please enter a valid input!"))
 		}
 	}
 
-	fmt.Println("Please wait until browser opens !")
+	fmt.Println(fetchStatusStyle.Render("Please wait until browser opens !"))
 	if err := openBrowser(url); err != nil {
-		fmt.Printf("Error: %v\n", err)
+		fmt.Print(errorStyle.Render(fmt.Sprintf("Error: %v\n", err)))
 	}
 
 	var ch int
-	fmt.Println("Do you want to continue ? \nPress 1 for Yes and 0 for No : ")
+	fmt.Print(fetchStatusStyle.Render("Do you want to continue ? \nPress 1 for Yes and 0 for No : "))
 	fmt.Scanln(&ch)
 
 	if ch == 0 {
-		fmt.Println("Exiting...")
+		fmt.Println(returnStyle.Render("Exiting..."))
 		os.Exit(0)
 	} else {
 		year(year_url)
