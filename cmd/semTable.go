@@ -2,10 +2,97 @@ package cmd
 
 import (
 	"fmt"
+	"os"
+
+	tea "github.com/charmbracelet/bubbletea"
 )
 
+type Semester struct {
+	name string
+	path string
+}
+
+type semModel struct {
+	cursor    int
+	semesters []Semester
+	err       error
+}
+
+func initialSemModel(semesters []Semester, err error) semModel {
+	return semModel{
+		cursor:    0,
+		semesters: semesters,
+		err:       err,
+	}
+}
+
+func (m semModel) Init() tea.Cmd {
+	return nil
+}
+
+func (m semModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+	switch msg := msg.(type) {
+	case tea.KeyMsg:
+		switch msg.String() {
+		case "q", "ctrl+c":
+			return m, tea.Quit
+		case "up":
+			if m.cursor > 0 {
+				m.cursor--
+			} else {
+				m.cursor = len(m.semesters) // Move to the bottom when at the top.
+			}
+		case "down":
+			if m.cursor < len(m.semesters) {
+				m.cursor++
+			} else {
+				m.cursor = 0 // Move to the top when at the bottom.
+			}
+		case "enter":
+			if m.cursor >= 0 && m.cursor < len(m.semesters) {
+				url := BASE_URL + m.semesters[m.cursor].path
+				semChoose(url)
+				break
+			} else if m.cursor == len(m.semesters) {
+				bubbleTeaStart()
+				return m, tea.Quit
+			} else {
+				fmt.Print(errorStyle.Render("Please enter a valid input!\n"))
+			}
+			return m, tea.Quit
+		}
+	}
+	return m, nil
+}
+
+func (m semModel) View() string {
+	if m.err != nil {
+		return errorStyle.Render(fmt.Sprintf("Error: %v\n", m.err))
+	}
+
+	s := titleStyle.Render("Semesters\n") + "\n"
+	for i, semester := range m.semesters {
+		prefix := "  "
+		listStyle := listInfo
+		if i == m.cursor {
+			prefix = "→ "
+			listStyle = highlightStyle
+		}
+		s += listStyle.Render(prefix+semester.name) + "\n"
+	}
+
+	prefix := "  "
+	if m.cursor == len(m.semesters) {
+		s += highlightStyle.Render("→ Back")
+	} else {
+		s += returnStyle.Render(prefix + "Back")
+	}
+
+	return s
+}
+
 func semTable(url string) {
-	fmt.Println(fetchStatusStyle.Render("Fetching semesters..."))
+	fmt.Print(fetchStatusStyle.Render("Fetching semesters...\n"))
 
 	semesters, err := semTableReq(url)
 
@@ -14,31 +101,15 @@ func semTable(url string) {
 		return
 	}
 
-	fmt.Print(titleStyle.Render("No\tSemesters\n"))
-	for i, semester := range semesters {
-		fmt.Println(listInfo.Render(fmt.Sprintf("%d\t%s", i+1, semester.name)))
+	var sems []Semester
+	for _, sem := range semesters {
+		sems = append(sems, Semester(sem)) // Convert resource to Semester.
 	}
-
-	// Option to add "Back".
-	fmt.Print(returnStyle.Render(fmt.Sprintf("%d\tBack", len(semesters)+1)))
-
+	p := tea.NewProgram(initialSemModel(sems, err))
 	stack.Push(url)
-
-	for {
-		var ch int
-		fmt.Printf("\n%s",fetchStatusStyle.Render("Enter your semester: "))
-		fmt.Scanln(&ch)
-
-		if ch > 0 && ch <= len(semesters) {
-			url := BASE_URL + semesters[ch-1].path
-			semChoose(url)
-			break
-		} else if ch == len(semesters)+1 {
-			start()
-			break
-		} else {
-			fmt.Println(errorStyle.Render("Please enter a valid input!"))
-		}
+	_, err = p.Run()
+	if err != nil {
+		fmt.Printf("Error: %v", err)
+		os.Exit(1)
 	}
-
 }
