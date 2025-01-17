@@ -25,7 +25,7 @@ jobs:
 
       # Build the VitePress site
       - name: Build VitePress
-        run: npm run build
+        run: npm run docs:build
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
