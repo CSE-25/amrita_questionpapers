@@ -23,9 +23,3 @@ go.work.sum
 
 # env file
 .env
-
-# Vitepress website
-node_modules
-dist
-.temp
-cache
