@@ -11,40 +11,30 @@ hero:
       link: /getting-started
     - theme: alt
       text: View on GitHub
-      link: https://github.com/CSE-25/quick_start_express
+      link: https://github.com/CSE-25/amrita_pyq
 
 features:
-  - title: Quick Access
+  - icon: ⚡
+    title: Quick Access
     details: Fetch previous year question papers (PYQs) instantly without navigating through multiple websites.
-  - title: Browser Integration
+  - icon: 🌐
+    title: Browser Integration
     details: Opens the question papers directly in your default browser for seamless viewing.
-  - title: Search Simplified
+  - icon: 🔍
+    title: Search Simplified
     details: Search and locate specific question papers efficiently.
-  - title: Cross-Platform
+  - icon: 💻
+    title: Cross-Platform
     details: Works on all major operating systems.
 ---
 
 ## How It Works
 
-<div style="display: flex; gap: 1rem; align-items: start;">
-
-<div style="flex: 1;">
-  
 1. **Install the Tool**  
-   Install the CLI tool using the provided <a href= "getting-started#installation" target="gettingStarted"> installation command. </a>
+  Follow the [installation guide](getting-started#installation) to set up the CLI tool.
 
-2. **Run the Command**  
-   Type a simple command to fetch the question paper you need.
+2. **Fetch Question Papers**  
+  Use a simple command to retrieve the desired question paper.
 
-3. **View in Browser**  
-   Your default browser opens with the desired PYQ, ready to explore.
-
-</div>
-
-<div style="flex: 1;">
-  <img src="https://via.placeholder.com/300x150.png?text=CLI+Tool+Demo" alt="CLI Tool Demo" style="border-radius: 5px;">
-</div>
-
-</div>
-
----
+3. **Seamless Viewing**  
+  The question paper will open in your default browser for easy access and review.

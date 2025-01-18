@@ -2,35 +2,36 @@
 
 ## Introduction
 
-The **Amrita PYQ CLI Tool** is a command-line interface (CLI) application designed to simplify accessing previous year question papers (PYQs) from Amrita University. It directly fetches and displays the question papers in your default browser, making the process fast and easy.
-
----
+Welcome to the **Amrita PYQ CLI Tool**! This command-line interface (CLI) application is designed to simplify accessing previous year question papers (PYQs) from Amrita University. It fetches and displays the question papers directly in your default browser, making the process fast and easy.
 
 ## Prerequisites
 
-Before getting started, make sure you meet the following requirements:
+Before you begin, ensure you have the following:
 
-- **Network**: You need to be connected to the **Amrita WiFi** or use a **VPN** to access the network.
+- **Network**: Connect to **Amrita WiFi** or use a **VPN** to access the network.
 - **Development Environment**:
-  - **Golang** must be installed on your system.
-  - Ensure a working **Go Compiler** is set up.
-
----
+    - **Golang** installed on your system.
+    - A working **Go Compiler**.
 
 ## Installation
 
 ### Step 1: Clone the Repository
 
-Begin by cloning the repository to your local machine. Open a terminal and run:
+Clone the repository to your local machine. Open a terminal and run:
 
-```bash
+```sh
 git clone https://github.com/CSE-25/amrita_pyq
 ```
 
-### Step 2: Running the Application
+### Step 2: Run the Application
 
-1. Open the terminal and navigate to the directory where you cloned the repository.
-2. Run the application by executing the following command:
-   ```bash
-   go run main.go
-   ```
+1. Open the terminal and navigate to the cloned repository directory:
+    ```sh
+    cd amrita_pyq
+    ```
+2. Execute the application with the following command:
+    ```sh
+    go run main.go
+    ```
+
+You're all set! Enjoy seamless access to Amrita University's previous year question papers.
