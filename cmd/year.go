@@ -19,7 +19,7 @@ func yearTable(url string) {
 		action := func() {
 			time.Sleep(2 * time.Second)
 		}
-		if err := spinner.New().Title("Fetching years").Action(action).Run(); err != nil {
+		if err := spinner.New().Title("Fetching ...").Action(action).Run(); err != nil {
 			fmt.Println(err)
 			os.Exit(1)
 		}
