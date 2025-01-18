@@ -61,10 +61,14 @@ git clone https://github.com/CSE-25/amrita_pyq
 
 
 ### Step 5: View the Question Paper
-1. The question paper will automatically open as a **PDF** in your default web browser.
+1. **Filter**: Use the `/` key to apply a filter and narrow down the list of PDFs.  
+2. The question paper will automatically open as a **PDF** in your default web browser.
 
 ### Output
 ![image](https://github.com/user-attachments/assets/453959d2-10c5-40b0-b981-38791c96c2ac)
+
+![image](https://github.com/user-attachments/assets/dc8e80ce-73ae-4033-901a-d6ccbd387b2f)
+
 ![image](https://github.com/user-attachments/assets/b904263f-97c0-439f-9aa5-3c4f477683b6)
 
 The File is opened in PDF format in your default browser(in this case, Microsoft Edge) 
