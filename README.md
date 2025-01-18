@@ -44,7 +44,7 @@ git clone https://github.com/CSE-25/amrita_pyq
 3. A menu will appear with options to choose from.
 
 ### Output
-![image](https://github.com/user-attachments/assets/862562c1-4db7-4200-82d2-07f58f6fad09)
+![main](https://github.com/user-attachments/assets/148324a7-38fa-48d3-b53a-a292ce928254)
 
 ---
 
@@ -53,29 +53,35 @@ git clone https://github.com/CSE-25/amrita_pyq
 2. The tool will process your request and fetch the desired question paper.
 
 ### Output
-![image](https://github.com/user-attachments/assets/0eb76815-cfd8-4f48-8c67-bec55bc65f11)
+![image](https://github.com/user-attachments/assets/f0a3051c-ff9a-4f7a-84b3-716682ab4ff6)
+
+![image](https://github.com/user-attachments/assets/b4db183c-47e4-4630-8516-07fa016b7131)
 
 ---
 
 
 ### Step 5: View the Question Paper
-1. The question paper will automatically open as a **PDF** in your default web browser.
+1. **Filter**: Use the `/` key to apply a filter and narrow down the list of PDFs.  
+2. The question paper will automatically open as a **PDF** in your default web browser.
 
 ### Output
-![image](https://github.com/user-attachments/assets/d926aad6-2adc-41ce-a1b4-c287f1ccab1d)
-![image](https://github.com/user-attachments/assets/5f3df041-6a87-4be3-9f20-8cd121eac95c)
+![image](https://github.com/user-attachments/assets/453959d2-10c5-40b0-b981-38791c96c2ac)
 
-The File opened in PDF format in your default browser(in this case, Google Chrome) 
+![image](https://github.com/user-attachments/assets/dc8e80ce-73ae-4033-901a-d6ccbd387b2f)
+
+![image](https://github.com/user-attachments/assets/b904263f-97c0-439f-9aa5-3c4f477683b6)
+
+The File is opened in PDF format in your default browser(in this case, Microsoft Edge) 
 
 ---
    
 ### Step 6: Continue or Exit
-1. After the PDF is displayed, you will have the option to:
-   - **Continue**: Press `1` to go back to the main menu.  
-   - **Exit**: Press `0` to close the application.
+After the PDF is displayed, you will have the following options:
+   - **Go Back to Main Menu**: Select `Back to Main Menu` to return to the main menu.  
+   - **Exit**: Use the `Quit` option in the menu to close the application.
 
 ### Output
-![image](https://github.com/user-attachments/assets/cc4cdd7e-f1f4-4926-a00e-00adc098cb66)
+![image](https://github.com/user-attachments/assets/7ec80f02-e128-41b8-9907-6ac687e45c17)
 
 ---
 

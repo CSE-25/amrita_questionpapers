@@ -13,7 +13,7 @@ func fetchHTML(url string) (string, error) {
 	doc, err := soup.Get(url)
 
 	if err != nil {
-		fmt.Println("Error fetching the URL. Make sure you're connected to Amrita WiFi or VPN.")
+		fmt.Println(errorStyle.Render("Error fetching the URL. Make sure you're connected to Amrita WiFi or VPN."))
 		return "", err
 	}
 
@@ -32,7 +32,8 @@ func openBrowser(url string) error {
 		err = exec.Command("open", url).Start()
 	}
 	if err != nil {
-		return fmt.Errorf("failed to open browser: %w", err)
+		styledMessage := errorStyle.Render("failed to open browser")
+		return fmt.Errorf("%s: %w", styledMessage, err)
 	}
 	return nil
 }

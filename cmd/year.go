@@ -3,56 +3,84 @@ package cmd
 import (
 	"fmt"
 	"os"
+	"time"
+
+	"github.com/charmbracelet/huh"
+	"github.com/charmbracelet/huh/spinner"
 )
 
-func year(url string) {
-	fmt.Println("Fetching...")
-	year_url := url
+type File struct {
+	name string
+	path string
+}
 
-	files, err := yearReq(url)
+func yearTable(url string) {
+	for{
+		action := func() {
+			time.Sleep(2 * time.Second)
+		}
+		if err := spinner.New().Title("Fetching ...").Action(action).Run(); err != nil {
+			fmt.Println(err)
+			os.Exit(1)
+		}
 
-	if err != nil {
-		fmt.Println("Error:", err)
-		return
-	}
+		files, err := yearReq(url)
+		if err != nil {
+			fmt.Print(errorStyle.Render(fmt.Sprintf("Error: %v\n", err)))
+			return
+		}
 
-	fmt.Printf("No\tFiles\n")
-	for i, file := range files {
-		fmt.Printf("%d\t%s\n", i+1, file.name)
-	}
+		var selectedOption string
+		var options []huh.Option[string]
+		var fileList []File
 
-	// Option to add "Back".
-	fmt.Printf("%d\tBack\n", len(files)+1)
+		// Convert files to huh options.
+		for _, file := range files {
+			fileItem := File(file)
+			fileList = append(fileList, fileItem)
+			options = append(options, huh.NewOption(fileItem.name, fileItem.path))
+		}
+		// Add back option.
+		options = append(options, huh.NewOption("Back to Main Menu", "back"))
+		options = append(options, huh.NewOption("Quit", "quit"))
 
-	for {
-		var ch int
-		fmt.Print("\nEnter your choice: ")
-		fmt.Scanln(&ch)
+		// Create the form.
+		form := huh.NewForm(
+			huh.NewGroup(
+				huh.NewSelect[string]().
+					Title("Select Question Paper to view").
+					Options(options...).
+					Value(&selectedOption),
+			),
+		)
 
-		if ch > 0 && ch <= len(files) {
-			link := files[ch-1].path
-			url = BASE_URL + link
-			break
-		} else if ch == len(files)+1 {
-			semChoose(stack.Pop())
-		} else {
-			fmt.Println("Please enter a valid input!")
+		// Run the form.
+		err = form.Run()
+		if err != nil {
+			fmt.Printf("Error: %v", err)
+			os.Exit(1)
+		}
+
+		// Handle selection.
+		switch selectedOption {
+		case "back":
+			huhMenuStart() // Go back to main menu.
+		case "quit":
+			fmt.Println(fetchStatusStyle.Render("Exiting..."))
+			os.Exit(0)
+		default:
+			// Find selected file and process it
+			for _, fileItem := range fileList {
+				if fileItem.path == selectedOption {
+					url := BASE_URL + fileItem.path
+					openBrowser(url) // Function to open the browser with the selected URL.
+					break
+				}
+			}
 		}
 	}
+}
 
-	fmt.Println("Please wait until browser opens !")
-	if err := openBrowser(url); err != nil {
-		fmt.Printf("Error: %v\n", err)
-	}
-
-	var ch int
-	fmt.Println("Do you want to continue ? \nPress 1 for Yes and 0 for No : ")
-	fmt.Scanln(&ch)
-
-	if ch == 0 {
-		fmt.Println("Exiting...")
-		os.Exit(0)
-	} else {
-		year(year_url)
-	}
+func year(url string) {
+	yearTable(url) // Call the yearTable function to display the menu.
 }
