@@ -2,11 +2,11 @@
 ![Go Badge](https://img.shields.io/badge/Go-00ADD8?logo=go&logoColor=white)
 ![Last Updated](https://img.shields.io/badge/Last%20Updated-December-00ADD8?style=flat&logoColor=white&labelColor=5E5D5D&color=D0A93E)
 
-
 # Amrita PYQ CLI Tool 
-<p align="center">
+<a href="https://cse-25.github.io/amrita_pyq/"> <img src="https://img.shields.io/badge/Explore%20Docs-Amrita%20PYQ-blueviolet?style=for-the-badge&logo=rocket" alt="Amrita PYQ Documentation"/> </a>
+<div align="center">
   <img src="https://github.com/user-attachments/assets/44822d21-0e1d-4b3e-baa3-3450b5cc14fc" alt="amritalogo" width="450" height="175">
-</p>
+</div>
 
 ## Overview
 The Amrita PYQ CLI Tool is a command-line interface application that simplifies accessing previous year question papers (PYQs) by directly fetching and displaying them in your default browser.
@@ -127,4 +127,5 @@ The File opened in PDF format in your default browser(in this case, Google Chrom
   
 ---
 ## Documentation
+- [Ashwin V A](https://github.com/WinterSun23)
 - [R.D.Tarun](https://github.com/RD-Tarun)
