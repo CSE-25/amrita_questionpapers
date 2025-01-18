@@ -48,7 +48,7 @@ func yearTable(url string) {
 		form := huh.NewForm(
 			huh.NewGroup(
 				huh.NewSelect[string]().
-					Title("Select Year").
+					Title("Select Question Paper to view").
 					Options(options...).
 					Value(&selectedOption),
 			),
