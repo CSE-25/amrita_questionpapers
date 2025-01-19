@@ -1,6 +1,6 @@
 ![Static Badge](https://img.shields.io/badge/ampyq-darkred?logoColor=white)
 ![Go Badge](https://img.shields.io/badge/Go-00ADD8?logo=go&logoColor=white)
-![Last Updated](https://img.shields.io/badge/Last%20Updated-December-00ADD8?style=flat&logoColor=white&labelColor=5E5D5D&color=D0A93E)
+![GitHub last updated (main)](https://img.shields.io/github/last-commit/cse-25/amrita_pyq/main)
 
 # Amrita PYQ CLI Tool 
 <a href="https://cse-25.github.io/amrita_pyq/"> <img src="https://img.shields.io/badge/Explore%20Docs-Amrita%20PYQ-blueviolet?style=for-the-badge&logo=rocket" alt="Amrita PYQ Documentation"/> </a>
